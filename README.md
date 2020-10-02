@@ -1,6 +1,6 @@
 # Ventilator Management API (using NodeJS,Express,MongoDB)
 
-## Description of Project 
+## Description 
 This is a very simple API, to manage the ventilators in various hospitals. It is very efficient, and reduces time in updating the details of ventilators in this time of crisis.
 
 ## Functions
