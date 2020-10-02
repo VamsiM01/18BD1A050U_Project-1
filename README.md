@@ -18,8 +18,14 @@ As of now, there is no user interface. You can use the API using the terminal(Li
 1. Download the source code to a destination folder on your local machine.
 2. Open your terminal (or cmd), and go to the folder where the code resides.
 3. Make sure u have nodeJS and npm installed.
-4. Type npm install to install all the dependencies.
-5. After the dependencies are installed, Type "nodemon index.js".
+4. Type the following to install all the dependencies.
+    ```
+    npm install
+    ```
+5. After the dependencies are installed, type the following command.
+    ```
+    nodemon index.js
+    ```
 6. Now you can use the API to do any of the above listed functions.
 
 ## License
