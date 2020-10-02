@@ -30,7 +30,7 @@ As of now, there is no user interface. You can use the API using the terminal(Li
     ```
 5. After the dependencies are installed, type the following command.
     ```
-    nodemon index.js
+    node index.js
     ```
 6. Now you can use the API to do any of the above listed functions.
 
