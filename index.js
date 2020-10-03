@@ -22,47 +22,49 @@ MongoClient.connect(url,{useNewUrlParser:true,useUnifiedTopology:true},(error,cl
 
 // 1. ALL HOSPITALS' DETAILS
 app.get('/allHospitals/',middleware.checkToken,(req,res) =>{
-    res.writeHead(200,{'Content-Type':'text/html'});
+    // res.writeHead(200,{'Content-Type':'text/html'});
 
     db.collection('Hospital_Info').find().toArray((err,items) =>{
         if(err){
             throw err;
         }
-        res.write("<h2>All Hospitals' Details</h2>");
-        items.forEach((item) =>{
-            res.write(`Hospital ID : <strong>${item.Hospital_ID}</strong> <br>`);
-            res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
-            res.write(`Contact : <strong>${item.Contact}</strong> <br>`);   
-            res.write(`Type : <strong>${item.Type}</strong> <br>`);
-            res.write(`Address : <strong>${item.Address}</strong> <br>`);
-            res.write(`<br> <hr> <br>`);
-        });
+        res.json(items);
+        // res.write("<h2>All Hospitals' Details</h2>");
+        // items.forEach((item) =>{
+        //     res.write(`Hospital ID : <strong>${item.Hospital_ID}</strong> <br>`);
+        //     res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
+        //     res.write(`Contact : <strong>${item.Contact}</strong> <br>`);   
+        //     res.write(`Type : <strong>${item.Type}</strong> <br>`);
+        //     res.write(`Address : <strong>${item.Address}</strong> <br>`);
+        //     res.write(`<br> <hr> <br>`);
+        // });
         res.end();
     }); 
 });
 
 // 2. ALL VENTILATORS' DETAILS
 app.get('/allVentilators',middleware.checkToken,(req,res) =>{
-    res.writeHead(200,{'Content-Type':'text/html'});
+    // res.writeHead(200,{'Content-Type':'text/html'});
 
     db.collection('Ventilator_Info').find().toArray((err,items) =>{
         if(err){
             throw err;
         }
-        res.write("<h2>All Ventilators' Details</h2>");
-        items.forEach((item) =>{
-            res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
-            res.write(`Ventilator ID : <strong>${item.Ventilator_ID}</strong> <br>`);
-            res.write(`Status : <strong>${item.Status}</strong> <br>`);
-            res.write(`<br> <hr> <br>`);
-        });
+        res.json(items);
+        // res.write("<h2>All Ventilators' Details</h2>");
+        // items.forEach((item) =>{
+        //     res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
+        //     res.write(`Ventilator ID : <strong>${item.Ventilator_ID}</strong> <br>`);
+        //     res.write(`Status : <strong>${item.Status}</strong> <br>`);
+        //     res.write(`<br> <hr> <br>`);
+        // });
         res.end();
     });
 });
 
 // 3. HOSPITAL DETAILS BY HOSPITAL NAME
 app.get('/HospitalInfo/:hosp_name',middleware.checkToken,(req,res) => {
-    res.writeHead(200,{'Content-Type':'text/html'});
+    // res.writeHead(200,{'Content-Type':'text/html'});
 
     let hosp_name = req.params.hosp_name;
     
@@ -71,14 +73,15 @@ app.get('/HospitalInfo/:hosp_name',middleware.checkToken,(req,res) => {
             throw err;
         }
         else{
-            items.forEach((item)=>{
-                res.write(`<h2>Hospital Details of ${hosp_name}</h2>`);
-                res.write(`Hospital ID : <strong>${item.Hospital_ID}</strong> <br>`);
-                res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
-                res.write(`Contact : <strong>${item.Contact}</strong> <br>`);   
-                res.write(`Type : <strong>${item.Type}</strong> <br>`);
-                res.write(`Address : <strong>${item.Address}</strong> <br>`);
-            })
+            res.json(items);
+            // items.forEach((item)=>{
+            //     res.write(`<h2>Hospital Details of ${hosp_name}</h2>`);
+            //     res.write(`Hospital ID : <strong>${item.Hospital_ID}</strong> <br>`);
+            //     res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
+            //     res.write(`Contact : <strong>${item.Contact}</strong> <br>`);   
+            //     res.write(`Type : <strong>${item.Type}</strong> <br>`);
+            //     res.write(`Address : <strong>${item.Address}</strong> <br>`);
+            // })
             res.end();
         }
     });
@@ -86,7 +89,7 @@ app.get('/HospitalInfo/:hosp_name',middleware.checkToken,(req,res) => {
 
 // 4. VENTILATOR DETAILS BY HOSPITAL NAME 
 app.get('/VentilatorInfo/',middleware.checkToken,(req,res) =>{
-    res.writeHead(200,{'Content-Type':'text/html'});
+    // res.writeHead(200,{'Content-Type':'text/html'});
 
     let hosp_name = req.query.hosp_name;
 
@@ -94,20 +97,20 @@ app.get('/VentilatorInfo/',middleware.checkToken,(req,res) =>{
         if(err){
             throw error;
         }
-
-        res.write(`<h2>Ventilator Details of ${hosp_name}</h2>`);
-        items.forEach((item) =>{
-            res.write(`Ventilator ID : <strong>${item.Ventilator_ID}</strong> <br>`);
-            res.write(`Status : <strong>${item.Status}</strong> <br>`);
-            res.write(`<br> <hr> <br>`);
-        })
+        res.json(items);
+        // res.write(`<h2>Ventilator Details of ${hosp_name}</h2>`);
+        // items.forEach((item) =>{
+        //     res.write(`Ventilator ID : <strong>${item.Ventilator_ID}</strong> <br>`);
+        //     res.write(`Status : <strong>${item.Status}</strong> <br>`);
+        //     res.write(`<br> <hr> <br>`);
+        // })
         res.end();
     });
 });
 
 // 5. VENTILATOR DETAILS BY STATUS 
 app.post('/VentilatorInfoByStatus/',middleware.checkToken,(req,res) =>{
-    res.writeHead(200,{'Content-Type':'text/html'});
+    // res.writeHead(200,{'Content-Type':'text/html'});
 
     let status = req.body.Status;
 
@@ -115,12 +118,13 @@ app.post('/VentilatorInfoByStatus/',middleware.checkToken,(req,res) =>{
         if(err){
             throw err;
         }
-        res.write(`<h2>Ventilators which are ${status}</h2>`);
-        items.forEach((item) =>{
-            res.write(`Ventilator ID : <strong>${item.Ventilator_ID}</strong> <br>`);
-            res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
-            res.write(`<br> <hr> <br>`);
-        });
+        res.json(items);
+        // res.write(`<h2>Ventilators which are ${status}</h2>`);
+        // items.forEach((item) =>{
+        //     res.write(`Ventilator ID : <strong>${item.Ventilator_ID}</strong> <br>`);
+        //     res.write(`Hospital Name : <strong>${item.Name}</strong> <br>`);
+        //     res.write(`<br> <hr> <br>`);
+        // });
         res.end();
     });
 });
@@ -140,7 +144,7 @@ app.put('/updateVentilator/',middleware.checkToken,(req,res) =>{
         console.log("Document updated");
         console.log(res1.result);
     });
-    res.end("<h2>Document Updated</h2>");
+    res.end("<h2>Ventilator Updated</h2>");
 });
 
 // 7. ADD VENTILATOR
@@ -156,7 +160,7 @@ app.post('/addVentilator/',middleware.checkToken,(req,res) =>{
         if(err){
             throw err;
         }
-        console.log("Document added");
+        console.log("Ventilator added");
         console.log(res1.result);
     });
 
@@ -175,7 +179,7 @@ app.delete('/deleteVentilator/',middleware.checkToken,(req,res) =>{
             throw err;
         }
 
-        console.log("Document Deleted");
+        console.log("Ventilator Deleted");
         console.log(res1.result);
     });
     res.end("<h2>Document Deleted</h2>");
