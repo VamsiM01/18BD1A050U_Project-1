@@ -60,7 +60,7 @@ app.get('/allVentilators',middleware.checkToken,(req,res) =>{
     });
 });
 
-// 3. HOSPITAL DETAILS BY HOSPITAL NAME POST
+// 3. HOSPITAL DETAILS BY HOSPITAL NAME
 app.get('/HospitalInfo/:hosp_name',middleware.checkToken,(req,res) => {
     res.writeHead(200,{'Content-Type':'text/html'});
 
@@ -84,7 +84,7 @@ app.get('/HospitalInfo/:hosp_name',middleware.checkToken,(req,res) => {
     });
 });
 
-// 4. VENTILATOR DETAILS BY HOSPITAL NAME POST
+// 4. VENTILATOR DETAILS BY HOSPITAL NAME 
 app.get('/VentilatorInfo/',middleware.checkToken,(req,res) =>{
     res.writeHead(200,{'Content-Type':'text/html'});
 
