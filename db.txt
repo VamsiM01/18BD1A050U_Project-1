@@ -1,0 +1,67 @@
+DATABASE : HospitalManagement
+
+COLLECTION 1 : Hospital_Info
+
+{
+        "_id" : ObjectId("5f7087817422be6abd0e03a0"),
+        "Hospital_ID" : "1",
+        "Name" : "Apollo",
+        "Contact" : "+91-1234567890",
+        "Type" : "Private",
+        "Address" : "Hyderabad"
+}
+{
+        "_id" : ObjectId("5f722ba8956efc1088f4e73d"),
+        "Hospital_ID" : "2",
+        "Name" : "KIMS",
+        "Contact" : "+91-9876543210",
+        "Type" : "Private",
+        "Address" : "Hyderabad"
+}
+{
+        "_id" : ObjectId("5f72d85749d71d2a4a836c16"),
+        "Hospital_ID" : "3",
+        "Name" : "Gandhi",
+        "Contact" : "+91-1432567862",
+        "Type" : "Government",
+        "Address" : "Secunderabad"
+}
+
+
+COLLECTION 2 : Ventilator_Info
+
+{
+        "_id" : ObjectId("5f708a107422be6abd0e03a1"),
+        "Hospital_ID" : "1",
+        "Name" : "Apollo",
+        "Ventilator_ID" : "1_V1",
+        "Status" : "Unoccupied"
+}
+{
+        "_id" : ObjectId("5f72d76b49d71d2a4a836c13"),
+        "Hospital_ID" : "1",
+        "Name" : "Apollo",
+        "Ventilator_ID" : "1_V2",
+        "Status" : "Unoccupied"
+}
+{
+        "_id" : ObjectId("5f72d7d949d71d2a4a836c15"),
+        "Hospital_ID" : "2",
+        "Name" : "KIMS",
+        "Ventilator_ID" : "2_V2",
+        "Status" : "Occupied"
+}
+{
+        "_id" : ObjectId("5f73605410146120f4919f20"),
+        "Hospital_ID" : "3",
+        "Name" : "Gandhi",
+        "Ventilator_ID" : "3_V1",
+        "Status" : "Occupied"
+}
+{
+        "_id" : ObjectId("5f7363514051a7271c498cf2"),
+        "Hospital_ID" : "2",
+        "Name" : "KIMS",
+        "Ventilator_ID" : "2_V1",
+        "Status" : "Under Maintenance"
+}
